@@ -1,0 +1,386 @@
+/* ─── Reset & Base ─────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f0f2f5;
+  color: #1a1a2e;
+  min-height: 100vh;
+}
+
+/* ─── Home Page ─────────────────────────────────────────────── */
+.home {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+/* ─── Search ────────────────────────────────────────────────── */
+.search-form {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.search-input {
+  flex: 1;
+  padding: 0.65rem 1rem;
+  border: 2px solid #dde1e7;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  background: #fff;
+  transition: border-color 0.2s;
+  outline: none;
+}
+
+.search-input:focus {
+  border-color: #4361ee;
+}
+
+.search-form button {
+  padding: 0.65rem 1.4rem;
+  background-color: #4361ee;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.search-form button:hover {
+  background-color: #3a56d4;
+}
+
+/* ─── States ────────────────────────────────────────────────── */
+.loading,
+.no-results {
+  text-align: center;
+  color: #6c757d;
+  font-size: 1rem;
+  margin-top: 3rem;
+}
+
+.error {
+  background-color: #ffe3e3;
+  color: #c0392b;
+  border: 1px solid #f5c6cb;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+}
+
+/* ─── Contacts Grid ─────────────────────────────────────────── */
+.contacts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.25rem;
+}
+
+/* ─── Contact Card ──────────────────────────────────────────── */
+.contact-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.contact-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+.contact-card .name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1a1a2e;
+}
+
+.contact-card .email,
+.contact-card .phone {
+  font-size: 0.88rem;
+  color: #6c757d;
+}
+
+/* ─── Card Inputs ───────────────────────────────────────────── */
+.nameInput,
+.emailInput,
+.phoneInput {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  margin-bottom: 0.5rem;
+  border: 1.5px solid #dde1e7;
+  border-radius: 7px;
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.nameInput:focus,
+.emailInput:focus,
+.phoneInput:focus {
+  border-color: #4361ee;
+}
+
+/* ─── Card Buttons ──────────────────────────────────────────── */
+.cardButton {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 7px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.cardButton:hover {
+  opacity: 0.85;
+}
+
+.backBlue {
+  background-color: #4361ee;
+  color: #fff;
+}
+
+.backRed {
+  background-color: #e74c3c;
+  color: #fff;
+}
+
+.saveButton {
+  margin-top: 0.25rem;
+}
+
+/* ─── Auth Page ─────────────────────────────────────────────── */
+.auth {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #0d0d0d;
+  background-image:
+    radial-gradient(circle at 20% 20%, rgba(67, 97, 238, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(58, 12, 163, 0.15) 0%, transparent 50%),
+    repeating-linear-gradient(0deg, transparent, transparent 60px, rgba(255, 255, 255, 0.02) 60px, rgba(255, 255, 255, 0.02) 61px),
+    repeating-linear-gradient(90deg, transparent, transparent 60px, rgba(255, 255, 255, 0.02) 60px, rgba(255, 255, 255, 0.02) 61px);
+  padding: 1rem;
+}
+
+.auth > div {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 3rem 2.5rem;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  animation: fadeSlideUp 0.4s ease both;
+}
+
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.auth h3 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-align: center;
+  letter-spacing: -0.5px;
+}
+
+.auth h3::after {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 3px;
+  background: linear-gradient(90deg, #4361ee, #7b2ff7);
+  border-radius: 2px;
+  margin: 0.6rem auto 0;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  width: 100%;
+}
+
+.auth-form input {
+  width: 100%;
+  padding: 0.85rem 1.1rem;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  font-size: 0.95rem;
+  color: #ffffff;
+  outline: none;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.auth-form input::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.auth-form input:focus {
+  border-color: #4361ee;
+  background: rgba(67, 97, 238, 0.08);
+}
+
+.auth-form button {
+  width: 100%;
+  margin-top: 0.5rem;
+  padding: 0.9rem;
+  background: linear-gradient(135deg, #4361ee, #7b2ff7);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  letter-spacing: 0.3px;
+  transition: opacity 0.2s, transform 0.15s;
+}
+
+.auth-form button:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.auth-form button:active {
+  transform: translateY(0);
+}
+
+.auth > div > button {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 0.85rem;
+  cursor: pointer;
+  text-align: center;
+  transition: color 0.2s;
+  margin: 0 auto;
+}
+
+.auth > div > button:hover {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.auth p[style] {
+  background: rgba(231, 76, 60, 0.15) !important;
+  border: 1px solid rgba(231, 76, 60, 0.3) !important;
+  border-radius: 8px;
+  padding: 0.5rem 0.75rem;
+  color: #ff6b6b !important;
+  font-size: 0.82rem !important;
+  text-align: center;
+}
+
+/* ─── Add Contact Button ─────────────────────────────────────── */
+.addContact {
+  width: 100%;
+  height: 30px;
+  margin-top: 20px;
+  border-radius: 10px;
+  background-color: white;
+  border: none;
+  box-shadow: 0 0 10px #c5c5c5;
+  cursor: pointer;
+}
+
+/* ─── Add Contact Form ───────────────────────────────────────── */
+.addContactForm {
+  max-width: 400px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  font-family: "Inter", -apple-system, sans-serif;
+}
+
+.addContactForm h2 {
+  margin-bottom: 0.5rem;
+  color: #1a1a1a;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.addContactForm input[type="text"] {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1.5px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+}
+
+.addContactForm input[type="text"]:focus {
+  outline: none;
+  border-color: #4a90e2;
+  box-shadow: 0 0 0 4px rgba(74, 144, 226, 0.1);
+}
+
+.addContactForm input::placeholder {
+  color: #a0a0a0;
+}
+
+.addContactForm button {
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-top: -1px ;
+  /* width: 33%; */
+  display: inline-block;
+}
+
+.addContactForm button:hover {
+  background-color: #357abd;
+}
+
+
+
+/* ─── Responsive ────────────────────────────────────────────── */
+@media (max-width: 600px) {
+  .home {
+    padding: 1rem;
+  }
+
+  .contacts-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .auth > div {
+    margin: 1rem;
+    padding: 2rem 1.25rem;
+    border-radius: 16px;
+  }
+}
