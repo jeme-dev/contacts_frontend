@@ -74,7 +74,7 @@ function Auth() {
             required
           />
           
-          {error && <p className="error-message">{error}</p>}
+          {error && <p className="error">{error}</p>}
           
           <button type="submit" className="primary-btn" onClick={
             hasAccount ? handleLogin : handleRegister
